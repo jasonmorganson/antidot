@@ -31,30 +31,24 @@ builds:
 
 archives:
   - id: release
-    name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    name_template: >-
+      {{ .Binary }}_{{ .Version }}_
+      {{- if eq .Os "darwin" }}Darwin{{ else if eq .Os "linux" }}Linux{{ else }}{{ .Os }}{{ end }}_
+      {{- if eq .Arch "amd64" }}x86_64{{ else if eq .Arch "386" }}i386{{ else }}{{ .Arch }}{{ end }}
     format: tar.gz
     builds:
       - antidot-linux
       - antidot-darwin
-    replacements:
-      darwin: Darwin
-      linux: Linux
-      windows: Windows
-      386: i386
-      amd64: x86_64
 
   - id: binaries
-    name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    name_template: >-
+      {{ .Binary }}_{{ .Version }}_
+      {{- if eq .Os "darwin" }}Darwin{{ else if eq .Os "linux" }}Linux{{ else }}{{ .Os }}{{ end }}_
+      {{- if eq .Arch "amd64" }}x86_64{{ else if eq .Arch "386" }}i386{{ else }}{{ .Arch }}{{ end }}
     format: binary
     builds:
       - antidot-linux
       - antidot-darwin
-    replacements:
-      darwin: Darwin
-      linux: Linux
-      windows: Windows
-      386: i386
-      amd64: x86_64
 
   - id: aur
     name_template: "aur_{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
