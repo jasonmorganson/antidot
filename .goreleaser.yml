@@ -76,14 +76,14 @@ changelog:
 
 brews:
   - name: antidot
-    folder: Formula
+    directory: Formula
     homepage: "https://github.com/doron-cohen/antidot"
     description: "Cleans up your $HOME from those pesky dotfiles"
     url_template: "https://github.com/doron-cohen/antidot/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
     skip_upload: false
     ids:
       - release
-    tap:
+    repository:
       owner: doron-cohen
       name: homebrew-tap
       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
