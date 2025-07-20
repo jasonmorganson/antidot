@@ -74,18 +74,18 @@ changelog:
       - '^tests'
       - '^chore'
 
-homebrew_casks:
-  - name: antidot
-    directory: Formula
-    homepage: "https://github.com/doron-cohen/antidot"
-    description: "Cleans up your $HOME from those pesky dotfiles"
-    skip_upload: false
-    ids:
-      - release
-    repository:
-      owner: doron-cohen
-      name: homebrew-tap
-      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
-    commit_author:
-      name: goreleaserbot
-      email: goreleaser@doron.dev
+# homebrew_casks:
+#   - name: antidot
+#     directory: Formula
+#     homepage: "https://github.com/doron-cohen/antidot"
+#     description: "Cleans up your $HOME from those pesky dotfiles"
+#     skip_upload: false
+#     ids:
+#       - release
+#     repository:
+#       owner: doron-cohen
+#       name: homebrew-tap
+#       token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+#     commit_author:
+#       name: goreleaserbot
+#       email: goreleaser@doron.dev
